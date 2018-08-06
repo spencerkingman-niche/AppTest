@@ -32,13 +32,10 @@ export class Register extends Component {
     registerAccount = () => {
         if (!this.state.username){
             Alert.alert('Please enter a username')
-        }
-        else if (this.state.passwrd !== this.state.passwrdConfirm){
+        } else if (this.state.passwrd !== this.state.passwrdConfirm){
             Alert.alert('Passwords do not match')
-        }
-        else {
+        } else {
             AsyncStorage.getItem(this.state.username, (err, result) => {
-                console.log('result: ', result)
                 if(result!==null){
                     Alert.alert(`${this.state.username} already exists`)
                 } else {
