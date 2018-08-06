@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         paddingBottom: '45%',
     },
     heading: {
-        fontSize: 16,
+        fontSize: 18,
         flex: 1
     },
     inputs: {
@@ -80,9 +80,9 @@ const styles = StyleSheet.create({
         paddingTop: 20,
     },
     buttons: {
-        marginTop: 15,
+        marginTop: 5,
         fontSize: 16,
-        padding: 10,
+        padding: 5,
         backgroundColor: '#ddccde',
         shadowColor: '#666666',
         shadowOpacity: 0.3,

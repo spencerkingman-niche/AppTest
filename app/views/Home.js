@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Header } from '../sections/Header.js'
 import { Hero } from '../sections/Hero.js'
 import { Menu } from '../sections/Menu.js'
-import { StackNavigator } from 'react-navigation'
 
 export class Home extends React.Component {
     static navigationOptions = {
