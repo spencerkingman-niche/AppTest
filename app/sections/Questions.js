@@ -7,11 +7,10 @@ export class Question extends React.Component {
     }
 
     constructor(props) {
-        super(props) {
-            this.state= {
-                select: false, 
-                correct: false
-            }
+        super(props) 
+        this.state= {
+            select: false, 
+            correct: false
         }
     }
 
@@ -19,9 +18,15 @@ export class Question extends React.Component {
         let worth = 25
         if(ans === this.props.correctAnswer) {
             this.setState({
-                selected: true, correct: true
+                selected: true,
+                 correct: true
             })
             this.props.scoreUpdate(0)
+        } else {
+            this.setState({
+                selected: true,
+            })
+            this.props.scoreUpdate(worth)
         }
     }
 

@@ -26,6 +26,8 @@ export class Quiz extends React.Component {
             incorrect: 0,
             questionAnswered: 0,
         })
+
+        this.finishQuiz = this.finishQuiz.bind(this)
     }
 
     updateScore = (penalty) => {
@@ -49,55 +51,55 @@ export class Quiz extends React.Component {
                 completedQuiz: true
             })
         }
+    }
 
-        finishQuiz = () => {
-            this.props.navigation.navigate(
-                'FinishRT', {
-                    score: this.state.totalScore,
-                    missed: this.state.incorrect,
-                    questions: this.state.numberOfQuestions,
-                }
-            )
-        }
+    finishQuiz() {
+        this.props.navigation.navigate(
+            'FinishRT', {
+                score: this.state.totalScore,
+                missed: this.state.incorrect,
+                questions: this.state.numberOfQuestions,
+            }
+        );
+    };
 
-        render() {
-            return (
-                <View style={styles.container}>
-                    { this.state.questLoaded && (
-                        <FlatList
-                            data={ this.state.questList }
-                            renderItem={({item}) =>
-                                <Question
-                                    question={item.question}
-                                    answer1={item.answer1}
-                                    answer2={item.answer2}
-                                    answer3={item.answer3}
-                                    answer4={item.answer4}
-                                    correctAnswer={item.correctAnswer}
-                                    scoreUpdate={this.updateScore}
-                                />
-                            }
-                        />
-                    )} 
+    render() {
+        return (
+            <View style={styles.container}>
+                { this.state.questLoaded && (
+                    <FlatList
+                        data={ this.state.questList }
+                        renderItem={({item}) =>
+                            <Question
+                                question={item.question}
+                                answer1={item.answer1}
+                                answer2={item.answer2}
+                                answer3={item.answer3}
+                                answer4={item.answer4}
+                                correctAnswer={item.correctAnswer}
+                                scoreUpdate={this.updateScore}
+                            />
+                        }
+                    />
+                )} 
 
-                    { !this.state.completedQuiz && (
-                        <TouchableHighlight style={styles.disabled} >
-                            <Text>Answer all the questions</Text>
-                        </TouchableHighlight>
-                    )}
+                { !this.state.completedQuiz && (
+                    <TouchableHighlight style={styles.disabled} >
+                        <Text>Answer all the questions</Text>
+                    </TouchableHighlight>
+                )}
 
-                    { this.state.completedQuiz && (
-                        <TouchableHighlight onPress={this.finishQuiz} style={styles.enabled} >
-                            <Text>Finished</Text>
-                        </TouchableHighlight>
-                    )}
+                { this.state.completedQuiz && (
+                    <TouchableHighlight onPress={this.finishQuiz} style={styles.enabled} >
+                        <Text>Finished</Text>
+                    </TouchableHighlight>
+                )}
 
-                    { !this.state.questLoaded && (
-                        <Text>LOADING</Text>
-                    )}
-                </View>
-            )
-        }
+                { !this.state.questLoaded && (
+                    <Text>LOADING</Text>
+                )}
+            </View>
+        )
     }
 }
 
@@ -117,6 +119,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#90ee90',
         height: '10%',
-
     }
 })

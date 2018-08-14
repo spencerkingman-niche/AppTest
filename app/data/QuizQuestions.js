@@ -15,7 +15,7 @@ export const QuizData = {
             answer2:'Sun',
             answer3:'Mon',
             answer4:'Tues',
-            correctAnswer:'Mon',
+            correctAnswer:'answer3',
             key: '1B',
         },
         {
@@ -24,7 +24,7 @@ export const QuizData = {
             answer2:'Hannah',
             answer3:'Theda',
             answer4:'Sidera',
-            correctAnswer:'Spencer',
+            correctAnswer:'answer1',
             key: '1C',
         },
         {
