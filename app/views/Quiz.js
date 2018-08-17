@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 30,
+        fontSize: 12,
     },
     disabled: {
         alignItems: 'center',
