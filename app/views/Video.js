@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, FlatList, Image, TouchableWithoutFeedback } from 'react-native'
-
+import { YOU_TUBE_API_KEY } from '../../development.config.js'
 export class Video extends React.Component {
 
     static navigationOptions = {
@@ -13,7 +13,7 @@ export class Video extends React.Component {
     }
 
     componentDidMount(){
-        return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=AIzaSyCJhs35meOtY7Lyff4KyepgHIAxKE1h458')
+        return fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=${YOU_TUBE_API_KEY}`)
         .then((response) => response.json())
         .then((responseJson) => {
             this.setState({

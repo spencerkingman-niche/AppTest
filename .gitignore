@@ -3,6 +3,9 @@
 # expo
 .expo/
 
+# development config
+development.config.js
+
 # dependencies
 /node_modules
 
