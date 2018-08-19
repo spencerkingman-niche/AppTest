@@ -97,28 +97,40 @@ export class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
+        alignItems: 'flex-start',
         paddingBottom: '45%',
         paddingTop: '10%',
+        backgroundColor: '#efa337',
     },
     heading: {
-        fontSize: 18,
+        fontSize: 24,
         flex: 1,
+        marginLeft: '10%',
+        // paddingLeft: 10,
+        color: '#ffffff',
     },
     inputs: {
+        backgroundColor: '#ffffff',
         flex: 1,
+        height: 24,
+        marginLeft: '10%',
         width: '80%',
     },
     buttons: {
-        fontSize: 16,
-        padding: 5,
-        width: '100%',
-        marginTop: 5,
         backgroundColor: '#ddccde',
+        fontSize: 16,
+        padding: 10,
+        marginLeft: '10%',
+        marginTop: 5,
         shadowColor: '#666666',
         shadowOpacity: 0.3,
+        width: '100%',
     },
     label: {
-        paddingBottom: 0,
+        color: '#ffffff',
+        marginLeft: '10%',
+        paddingBottom: 5,
+        // paddingLeft: 10,
+        paddingTop: 3,
     }
 })

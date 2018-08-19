@@ -85,7 +85,8 @@ export class Quiz extends React.Component {
 
                 { !this.state.completedQuiz && (
                     <TouchableHighlight style={styles.disabled} >
-                        <Text>Answer all the questions</Text>
+                        <Text style={styles.question}>Answer all the questions</Text>
+
                     </TouchableHighlight>
                 )}
 
@@ -107,6 +108,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 30,
+    },
+    question: {
         fontSize: 12,
     },
     disabled: {

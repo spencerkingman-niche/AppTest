@@ -1,43 +1,66 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text, Alert } from 'react-native'
+import { Font } from 'expo'
 
 export class Menu extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            loading: true,
+        }
+    }
+
+    async componentWillMount() {
+        await Font.loadAsync({
+            'open-sans-regular': require('../../assets/fonts/Open_Sans/OpenSans-Regular.ttf'),
+        })
+        this.setState({ loading: false });
+    }
 
     onPress = () => {
         Alert.alert('You tapped the button!')
     }
 
     render() {
-        return(
-            <View style={ styles.container }>
-                <View style={styles.buttonRow}>
-                    <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('LessonsRT')}>
-                        <Text style={styles.buttonText}>LESSONS</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('RegisterRT')}>
-                        <Text style={styles.buttonText}>REGISTER</Text>
-                    </TouchableOpacity>
+        if (this.state.loading) {
+            return(
+                <View style={ styles.container }>
+                    <Text>Loading...</Text>
                 </View>
+            )
+        } else {
+            return(
+                <View style={ styles.container }>
+                    <View style={styles.buttonRow}>
+                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('LessonsRT')}>
+                            <Text style={styles.buttonText}>LESSONS</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('RegisterRT')}>
+                            <Text style={styles.buttonText}>REGISTER</Text>
+                        </TouchableOpacity>
+                    </View>
 
-                <View style={styles.buttonRow}>
-                    <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('BlogRT')}>
-                        <Text style={styles.buttonText}>BLOG</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonStyles} onPress={() =>  this.props.navigate('ContactRT')}>
-                        <Text style={styles.buttonText}>CONTACT</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.buttonRow}>
+                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('BlogRT')}>
+                            <Text style={styles.buttonText}>BLOG</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.buttonStyles} onPress={() =>  this.props.navigate('ContactRT')}>
+                            <Text style={styles.buttonText}>CONTACT</Text>
+                        </TouchableOpacity>
+                    </View>
 
-                <View style={styles.buttonRow}>
-                    <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('QuizRT')}>
-                        <Text style={styles.buttonText}>QUIZ</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('AboutRT')}>
-                        <Text style={styles.buttonText}>ABOUT</Text>
-                    </TouchableOpacity>
+                    <View style={styles.buttonRow}>
+                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('QuizRT')}>
+                            <Text style={styles.buttonText}>QUIZ</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('AboutRT')}>
+                            <Text style={styles.buttonText}>ABOUT</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
-        )
+            )   
+
+        }
     }
 }
 
@@ -62,6 +85,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: 'white',
+        fontFamily: 'open-sans-regular',
         fontSize: 18,
     }
 })

@@ -1,5 +1,6 @@
 import React from 'react';
 import { AsyncStorage, Alert, StyleSheet, Text, View, Image } from 'react-native'
+import { Font } from 'expo'
 
 export class Header extends React.Component {
     constructor(props) {
@@ -7,6 +8,7 @@ export class Header extends React.Component {
         this.state = {
             isLoggedIn: false,
             loggedUser: false,
+            loading: true,
         }
     }
 
@@ -22,6 +24,13 @@ export class Header extends React.Component {
         } else {
             this.props.navigate('LoginRT')
         }
+    }
+
+    async componentWillMount() {
+        await Font.loadAsync({
+            'open-sans-semi-bold': require('../../assets/fonts/Open_Sans/OpenSans-SemiBold.ttf'),
+        })
+        this.setState({ loading: false });
     }
 
     componentDidMount(){
@@ -44,18 +53,26 @@ export class Header extends React.Component {
     
     render() {
         let display = this.state.isLoggedIn ? this.state.loggedUser : this.props.message
-        return (
-            <View style={styles.headStyle}>
-                <Image
-                    style={styles.logoStyle}
-                    source={ require('./img/tv.jpg')}
-                />
-                <Text
-                    style={styles.headText}
-                    onPress={this.toggleUser}>{display}
-                </Text>
-            </View>
-        )
+        if (this.state.loading) {
+            return(
+                <View style={ styles.container }>
+                    <Text>Loading...</Text>
+                </View>
+            )
+        } else {
+            return (
+                <View style={styles.headStyle}>
+                    <Image
+                        style={styles.logoStyle}
+                        source={ require('./img/tv.jpg')}
+                    />
+                    <Text
+                        style={styles.headText}
+                        onPress={this.toggleUser}>{display}
+                    </Text>
+                </View>
+            )
+        }
     }
 }
 
@@ -63,6 +80,7 @@ const styles = StyleSheet.create({
     headText: {
         textAlign: 'right', 
         color: '#ffffff',
+        fontFamily: 'open-sans-semi-bold',
         fontSize: 20,
         flex: 1
     },

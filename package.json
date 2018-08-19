@@ -24,5 +24,11 @@
     "react-native": "~0.55.2",
     "react-native-render-html": "^3.10.0",
     "react-navigation": "^1.5.11"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
+
 }
