@@ -9,14 +9,15 @@ export class Hero extends React.Component {
             <Swiper
                 style={styles.wrapper}
                 height={240}
+                index={Math.floor(Math.random() * Math.floor(2))}
                 onMomentumScrollEnd={(e, state, context) => console.log('index:', state.index)}
                 dot={
                     <View 
                         style={{
                             backgroundColor: 'rgba(0,0,0,.2)',
-                            width: 5,
-                            height: 5,
-                            borderRadius: 4,
+                            width: 4,
+                            height: 4,
+                            borderRadius: 2,
                             marginLeft: 3,
                             marginRight: 3,
                             marginTop: 3,
@@ -26,10 +27,10 @@ export class Hero extends React.Component {
                 activeDot={
                     <View 
                         style={{
-                            backgroundColor: '#000',
-                            width: 8,
-                            height: 8,
-                            borderRadius: 4,
+                            backgroundColor: '#ca0',
+                            width: 6,
+                            height: 6,
+                            borderRadius: 3,
                             marginLeft: 3,
                             marginRight: 3,
                             marginTop: 3,
@@ -37,7 +38,7 @@ export class Hero extends React.Component {
                         }} 
                     />}
                 paginationStyle={{
-                    bottom: -23,
+                    bottom: 10,
                     left: null,
                     right: 10
                 }} 
@@ -64,7 +65,7 @@ const styles = StyleSheet.create ({
     heroImage: {
         width: undefined,
         height: undefined,
-        flex: 8,
+        flex: 1,
     },
     wrapper: {
 

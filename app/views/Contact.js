@@ -19,6 +19,10 @@ export class Contact extends React.Component {
         }
     }
 
+    cancel = () => {
+        this.props.navigation.navigate('HomeRT')
+    }
+
     clearFields = () => this.setState({name: '', msg: '', email: ''})
 
     sendMessage = () => {
@@ -54,6 +58,7 @@ export class Contact extends React.Component {
                         value={this.state.email}
                     />
                     <View style={styles.buttonContainer}>
+                        <Button onPress={this.cancel} label="Go Back" raised> </Button>
                         <Button onPress={this.clearFields} label="Reset Form" raised> </Button>
                         <Button onPress={this.sendMessage} label="Send Message" raised> </Button>
                     </View>
