@@ -97,12 +97,12 @@ const styles = StyleSheet.create({
     questionText: {
         flex:2,
         padding: 15,
-        fontSize: 20,
+        fontSize: 16,
     },
     answerText: {
         flex: 2,
-        padding: 15,
-        fontSize: 20,
+        padding: 10,
+        fontSize: 12,
         textAlign: 'center',
     }
 })
