@@ -13,7 +13,7 @@ export class Video extends React.Component {
     }
 
     componentDidMount(){
-        return fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=${YOU_TUBE_API_KEY}`)
+        return fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=PLjsNGJnIwfSdghWVTqjpKd-j8nJPbMQh2&key=${YOU_TUBE_API_KEY}`)
         .then((response) => response.json())
         .then((responseJson) => {
             this.setState({
@@ -34,6 +34,7 @@ export class Video extends React.Component {
                     <View style={{ paddingTop:30}}>
                         <FlatList 
                             data={ this.state.videoList }
+                            keyExtractor={(item, i) => i.toString()}
                             renderItem={({item}) => 
                                 <TubeItem
                                     key={item.id.videoId}
@@ -69,10 +70,10 @@ export class TubeItem extends React.Component {
             <TouchableWithoutFeedback onPress={this.onPress}>
                 <View style={{ paddingTop: 20, alignItems: 'center'}}>
                     <Image
-                        style={{width: '100%', height: 200}}
+                        style={{width: '80%', height: 200}}
                         source={{ uri: this.props.imageSrc }}
                     />
-                    <Text>
+                    <Text style={{width: '80%', padding: 5, fontSize: 14,}}>
                         {this.props.title}
                     </Text>
                 </View>

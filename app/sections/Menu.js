@@ -12,7 +12,7 @@ export class Menu extends React.Component {
 
     async componentWillMount() {
         await Font.loadAsync({
-            'open-sans-regular': require('../../assets/fonts/Open_Sans/OpenSans-Regular.ttf'),
+            'open-sans-semi-bold': require('../../assets/fonts/Open_Sans/OpenSans-SemiBold.ttf'),
         })
         this.setState({ loading: false });
     }
@@ -32,8 +32,8 @@ export class Menu extends React.Component {
             return(
                 <View style={ styles.container }>
                     <View style={styles.buttonRow}>
-                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('LessonsRT')}>
-                            <Text style={styles.buttonText}>LESSONS</Text>
+                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('SongsRT')}>
+                            <Text style={styles.buttonText}>SONGS</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('RegisterRT')}>
                             <Text style={styles.buttonText}>REGISTER</Text>
@@ -50,8 +50,8 @@ export class Menu extends React.Component {
                     </View>
 
                     <View style={styles.buttonRow}>
-                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('QuizRT')}>
-                            <Text style={styles.buttonText}>QUIZ</Text>
+                        <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('GameRT')}>
+                            <Text style={styles.buttonText}>GAME</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.buttonStyles} onPress={() => this.props.navigate('AboutRT')}>
                             <Text style={styles.buttonText}>ABOUT</Text>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: 'white',
-        fontFamily: 'open-sans-regular',
+        fontFamily: 'open-sans-semi-bold',
         fontSize: 18,
     }
 })

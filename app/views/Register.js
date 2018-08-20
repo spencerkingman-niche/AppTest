@@ -7,7 +7,8 @@ import {
     TouchableHighlight,
     Alert,
     AsyncStorage,
-} from 'react-native'      
+} from 'react-native'
+import Button from './Button'
 
 export class Register extends Component {
 
@@ -56,6 +57,7 @@ export class Register extends Component {
                 <TextInput
                     style={styles.inputs}
                     onChangeText={(text) => this.setState({username: text})}
+                    underlineColorAndroid="transparent"
                     value={this.state.username}
                 />
                 <Text style={styles.label}>Enter Username</Text>
@@ -63,6 +65,7 @@ export class Register extends Component {
                 <TextInput
                     style={styles.inputs}
                     onChangeText={(text) => this.setState({passwrd: text})}
+                    underlineColorAndroid="transparent"
                     value={this.state.passwrd}
                     secureTextEntry={true}
                 />
@@ -71,53 +74,52 @@ export class Register extends Component {
                 <TextInput
                     style={styles.inputs}
                     onChangeText={(text) => this.setState({passwrdConfirm: text})}
+                    underlineColorAndroid="transparent"
                     value={this.state.passwrdConfirm}
                     secureTextEntry={true}
                 />
                 <Text style={styles.label}>Confirm Password</Text>
-
-                <TouchableHighlight onPress={this.registerAccount} underlayColor='#31e982'>
-                    <Text style={styles.buttons}>
-                        Register
-                    </Text>
-                </TouchableHighlight>
-                
-                <TouchableHighlight onPress={this.cancelRegister } underlayColor='#31e982'>
-                    <Text style={styles.buttons}>
-                        Cancel 
-                    </Text>
-                </TouchableHighlight>
-
+                <View style={styles.buttonContainer}>
+                    <Button onPress={this.cancelRegister} label="Cancel" raised> </Button>
+                    <Button onPress={this.registerAccount} label="Login" raised> </Button>
+                </View>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    buttonContainer: {
+        alignSelf: 'flex-end',
+        flexDirection: 'row',
+        paddingTop: 10,
+    },
     container: {
         flex: 1,
-        alignItems: 'center',
+        alignItems: 'flex-start',
         paddingBottom: '45%',
+        paddingLeft: '10%',
+        paddingRight: '10%',
         paddingTop: '10%',
+        backgroundColor: '#efa337',
     },
     heading: {
-        fontSize: 18,
-        flex: 1,
+        fontSize: 24,
+        color: '#ffffff',
+        fontWeight: 'bold',
+        height: 75,
     },
     inputs: {
-        flex: 1,
-        width: '80%',
-    },
-    buttons: {
-        fontSize: 16,
-        padding: 5,
+        backgroundColor: '#ffffff',
+        borderRadius: 10,
+        height: 42,
+        paddingLeft: 10,
         width: '100%',
-        marginTop: 5,
-        backgroundColor: '#ddccde',
-        shadowColor: '#666666',
-        shadowOpacity: 0.3,
     },
     label: {
-        paddingBottom: 0,
-    }
+        color: '#ffffff',
+        paddingBottom: 5,
+        // paddingLeft: 10,
+        paddingTop: 3,
+    },
 })

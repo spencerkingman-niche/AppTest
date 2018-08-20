@@ -22,7 +22,7 @@ const MyRoutes = StackNavigator({
   ContactRT: {
     screen: Contact
   },
-  LessonsRT: {
+  SongsRT: {
     screen: Video
   },
   VideoDetailRT: {
@@ -34,7 +34,7 @@ const MyRoutes = StackNavigator({
   LoginRT: {
     screen: Login
   },
-  QuizRT: {
+  GameRT: {
     screen: Quiz,
   },
   FinishRT: {
