@@ -1,5 +1,13 @@
 import React from 'react';
-import { AsyncStorage, Alert, StyleSheet, Text, View, Image } from 'react-native'
+import { 
+    Alert,
+    AsyncStorage,
+    Image,
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native'
 import { Font } from 'expo'
 
 export class Header extends React.Component {

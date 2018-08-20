@@ -8,6 +8,7 @@ import {
     Alert,
     AsyncStorage,
 } from 'react-native'      
+import Button from './Button'
 
 export class Login extends Component {
 
@@ -66,6 +67,7 @@ export class Login extends Component {
                 <TextInput
                     style={styles.inputs}
                     onChangeText={(text) => this.setState({username: text})}
+                    underlineColorAndroid="transparent"
                     value={this.state.username}
                 />
                 <Text style={styles.label}>Enter Username</Text>
@@ -73,62 +75,51 @@ export class Login extends Component {
                 <TextInput
                     style={styles.inputs}
                     onChangeText={(text) => this.setState({passwrd: text})}
+                    underlineColorAndroid="transparent"
                     value={this.state.passwrd}
                     secureTextEntry={true}
                 />
                 <Text style={styles.label}>Enter Password</Text>
                 
-                <TouchableHighlight onPress={this.loginUser} underlayColor='#31e982'>
-                    <Text style={styles.buttons}>
-                        Login
-                    </Text>
-                </TouchableHighlight>
-                
-                <TouchableHighlight onPress={this.cancelLogin} underlayColor='#31e982'>
-                    <Text style={styles.buttons}>
-                        Cancel 
-                    </Text>
-                </TouchableHighlight>
+                <View style={styles.buttonContainer}>
+                    <Button onPress={this.cancelLogin} label="Cancel" raised> </Button>
+                    <Button onPress={this.loginUser} label="Login" raised> </Button>
+                </View>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    buttonContainer: {
+        alignSelf: 'flex-end',
+        flexDirection: 'row',
+        paddingTop: 10,
+    },
     container: {
         flex: 1,
         alignItems: 'flex-start',
         paddingBottom: '45%',
+        paddingLeft: '10%',
+        paddingRight: '10%',
         paddingTop: '10%',
         backgroundColor: '#efa337',
     },
     heading: {
         fontSize: 24,
-        flex: 1,
-        marginLeft: '10%',
-        // paddingLeft: 10,
         color: '#ffffff',
+        fontWeight: 'bold',
+        height: 75,
     },
     inputs: {
         backgroundColor: '#ffffff',
-        flex: 1,
-        height: 24,
-        marginLeft: '10%',
-        width: '80%',
-    },
-    buttons: {
-        backgroundColor: '#ddccde',
-        fontSize: 16,
-        padding: 10,
-        marginLeft: '10%',
-        marginTop: 5,
-        shadowColor: '#666666',
-        shadowOpacity: 0.3,
+        borderRadius: 10,
+        height: 42,
+        paddingLeft: 10,
         width: '100%',
     },
     label: {
         color: '#ffffff',
-        marginLeft: '10%',
         paddingBottom: 5,
         // paddingLeft: 10,
         paddingTop: 3,
